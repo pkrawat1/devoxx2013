@@ -1,0 +1,84 @@
+body.with-notes .note {
+background: #333;
+color: #eee;
+opacity: 0.9;
+}
+
+.note p {
+font-size: 24px;
+line-height: 1.4em;
+margin: 0 0 1em 0;
+}
+
+.quiteBig {
+font-size: 80px;
+line-height: 1.2em;
+}
+.reallyBig {
+font-size: 120px;
+line-height: 1.2em;
+}
+
+.demoSubtitle {
+padding-left: 10px;
+}
+
+ul li {
+margin-bottom: 1em;
+list-style: square;
+}
+
+
+ul.faded li {
+opacity: 0.3;
+}
+
+ul.faded li.built {
+opacity: 1;
+}
+
+div.author {
+margin: 20px 0 0 0;
+}
+
+
+div.editable {
+font-size: 45px;
+font-weight: 600;
+line-height: 130px;
+list-style: none;
+min-height: 500px;
+position: relative;
+top: -42px;
+}
+
+div.editable:focus {
+outline: none;
+}
+
+.editable div {
+display: list-item;
+font-size: 26px;
+font-weight: normal;
+line-height: 1.5em;
+margin: 0 0 0 20px;
+}
+
+.editable div::before {
+content: '·';
+margin-left: -1em;
+position: absolute;
+}
+
+h2 {
+  line-height: 1.2em;
+}
+
+q {
+color: #a33;
+}
+
+slides > slide.title-slide:after {
+  background: url(../../images/webrtcLogo.png) no-repeat 100% 50%;
+}
+

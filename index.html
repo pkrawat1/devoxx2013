@@ -1,0 +1,220 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/google_developers_logo.png"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide class="segue dark quote nobackground">
+    <aside class="gdbar right bottom"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        WebRTC is a new front in the long war for an open and unencumbered web
+      </q>
+      <div class="author">
+        Brendan Eich<br>
+        &ndash; inventor of JavaScript
+      </div>
+    </article>
+    <aside class="note">
+      <section>
+        <ul>
+          <li>No licenses or other fees</li>
+          <li>Open source</li>
+          <li>Standardized APIs</li>
+          <li>No plugins.</li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>And you?</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>getUserMedia</li>
+        <li>RTCPeerConnection and RTCDataChannel
+        <li>SIP, PSTN, STUN, ICE, TURN</li>
+      </ul>
+    </article>
+  </slide>
+
+<slide class="nobackground">
+    <article class="fill flexbox vcenter">
+      <div class="big">Low cost, high quality audio and video communication</div>
+    </article>
+    <aside class="note">
+      <p>For the first time, we will start seeing person to person communication not as separate apps, but as a seamless part of your web experience. </p>
+    </aside>
+</slide>
+
+<slide class="nobackground">
+    <article class="fill flexbox vcenter">
+      <div class="quiteBig">...and data!</div>
+    </article>
+    <aside class="note">
+      <p>Low latency communication between peers, with less hops.</p>
+    </aside>
+</slide>
+
+<slide class="segue dark nobackground">
+  <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+  <hgroup class="auto-fadein">
+    <h2>What do we need for RTC?</h2>
+    <h3></h3>
+  </hgroup>
+  <aside class="note">
+    <p>Get audio and video streams and data, and communicate.</p>
+  </aside>
+</slide>
+
+<slide class="nobackground">
+    <hgroup>
+      <h2>APIs</h2>
+    </hgroup>
+    <article>
+    <ul>
+      <li>MediaStream (aka getUserMedia)</li>
+      <li>RTCPeerConnection</li>
+      <li>RTCDataChannel</li>
+    </ul>
+    </article>
+    <aside class="note">
+      <p>MediaStream: access to data streams, not just the user's camera and microphone.</p>
+      <p>A lot of news stories refer to WebRTC when they actually just mean getUserMedia.</p>
+      <p>Shim: <a href="https://github.com/addyosmani/getUserMedia.js/tree/master/lib" title="getUserMedia.js shim on github">getUserMedia.js</a> from Addy Osmani.</p>
+      <p>RTCPeerConnection: audio or video calling, with facilities for encryption, bandwidth management and so on. Currently one-to-one -- but could be one to many.</p>
+      <p>RTCDataChannel: high performance peer-to-peer communication of generic data.  (I heard a WebRTC engineer saying that with WebSocket you can hope for maybe 50ms round-trip times. DataChannel aims to have little more than a 'speed of light' problem, so latency is coming down to physical limits.)</p>
+    </aside>
+</slide>
+
+  <slide>
+    <hgroup>
+      <h2>Support?</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Google Chrome desktop: full support in Stable, flagless</li>
+        <li>Google Chrome Android Beta: behind a flag</li>
+        <li>Opera: getUserMedia</li>
+        <li>Firefox: Nightly and Aurora, getUserMedia in experimental buids</li>
+        <li>IE: full WebRTC support now via Chrome Frame</li>
+      </ul>
+    </article>
+  </slide>
+
+<slide>
+  <hgroup>
+    <h2>MediaStream</h2>
+    <h3>aka getUserMedia</h3>
+  </hgroup>
+  <article>
+    <pre class="prettyprint" data-lang="javascript">
+navigator.getUserMedia = navigator.getUserMedia ||
+  navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+var constraints = {video: true};
+
+function successCallback(localMediaStream) {
+  var video = document.querySelector("video");
+  video.src = window.URL.createObjectURL(localMediaStream);
+}
+
+function errorCallback(error){
+  console.log("navigator.getUserMedia error: ", error);
+}
+
+navigator.getUserMedia(constraints, successCallback, errorCallback);
+</pre>
+  </article>
+</slide>
+
+  <slide class="nobackground">
+    <article class="fill flexbox vcenter">
+      <div class="reallyBig">Demo!</div>
+    </article>
+    <aside class="note">
+      <p>Chrome, Firefox, Opera, Chrome and Firefox on Android.</p>
+    </aside>
+</slide>
+
+
+
+<slide class="thank-you-slide segue nobackground">
+  <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
+  <article class="flexbox vleft auto-fadein">
+    <h2>&lt;Thank You!&gt;</h2>
+    <p>All the WebRTC news that's fit to print:</p>
+  </article>
+  <p class="auto-fadein" data-config-contact>
+    <!-- populated from slide_config.json -->
+  </p>
+</slide>
+
+<slide class="logoslide dark nobackground">
+  <article class="flexbox vcenter">
+    <span><img src="images/google_developers_logo_white.png"></span>
+  </article>
+</slide>
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
