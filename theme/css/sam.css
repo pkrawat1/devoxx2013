@@ -1,15 +1,3 @@
-body.with-notes .note {
-background: #333;
-color: #eee;
-opacity: 0.9;
-}
-
-.note p {
-font-size: 24px;
-line-height: 1.4em;
-margin: 0 0 1em 0;
-}
-
 .quiteBig {
 font-size: 80px;
 line-height: 1.2em;
@@ -19,22 +7,22 @@ font-size: 120px;
 line-height: 1.2em;
 }
 
-.demoSubtitle {
-padding-left: 10px;
+body.with-notes .note {
+background: #333;
+color: #eee;
+opacity: 0.9;
 }
 
-ul li {
-margin-bottom: 1em;
-list-style: square;
+div#multipleInputs {
 }
 
-
-ul.faded li {
-opacity: 0.3;
-}
-
-ul.faded li.built {
-opacity: 1;
+div#multipleInputs > div {
+    float: left;
+    text-align: center;
+    top: 19%;
+    font-weight: bold;
+    line-height: 1.4em;
+    margin: 0 8% 0 7%;
 }
 
 div.author {
@@ -74,11 +62,49 @@ h2 {
   line-height: 1.2em;
 }
 
+div#multipleInputs img {
+    width: 30%;
+    display: block;
+    float: left;
+    margin: 8% 0 0 0;
+    top: 55%;
+}
+
+.note p {
+font-size: 24px;
+line-height: 1.4em;
+margin: 0 0 1em 0;
+}
+
+.demoSubtitle {
+padding-left: 10px;
+}
+
+ul li {
+margin-bottom: 1em;
+list-style: square;
+}
+
+
+ul.faded li {
+opacity: 0.3;
+}
+
+ul.faded li.built {
+opacity: 1;
+}
+
+ul.tight li {
+margin: 0 0 0.7em -1.5px;
+padding: 0 0 0 -1.8px;
+}
+
 q {
 color: #a33;
 }
 
 slides > slide.title-slide:after {
-  background: url(../../images/webrtcLogo.png) no-repeat 100% 50%;
+	background: none;
+//  background: url(../../images/webrtcLogo.png) no-repeat 100% 50%;
 }
 
