@@ -70,22 +70,13 @@ div#multipleInputs img {
     top: 55%;
 }
 
-.note p {
-font-size: 24px;
-line-height: 1.4em;
-margin: 0 0 1em 0;
-}
-
-.demoSubtitle {
-padding-left: 10px;
+ol li {
+margin: 0 0 1.4em 0;
 }
 
 ul li {
-margin-bottom: 1em;
 list-style: square;
 }
-
-
 ul.faded li {
 opacity: 0.3;
 }
@@ -97,6 +88,21 @@ opacity: 1;
 ul.tight li {
 margin: 0 0 0.7em -1.5px;
 padding: 0 0 0 -1.8px;
+}
+
+ol {
+list-style: decimal;
+margin: 0 0 0 1.4em;
+}
+
+.note p {
+font-size: 24px;
+line-height: 1.4em;
+margin: 0 0 1em 0;
+}
+
+.demoSubtitle {
+padding-left: 10px;
 }
 
 q {
