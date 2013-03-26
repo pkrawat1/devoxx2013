@@ -44,7 +44,7 @@ URL: https://code.google.com/p/io-2012-slides
 
 <slide class="nobackground">
     <article class="fill flexbox vcenter">
-      <div class="quiteBig"><a href="http://www.samdutton.net/devoxx2013" title="These slides online">samdutton.net/devoxx2013</a></div>
+      <div class='big'><a href="http://www.samdutton.net/devoxx2013" title="These slides online">samdutton.net/devoxx2013</a></div>
     </article>
     <aside class="note">
     </aside>
@@ -98,7 +98,7 @@ URL: https://code.google.com/p/io-2012-slides
 
 <slide class="nobackground">
     <article class="fill flexbox vcenter">
-      <div class="quiteBig">...and data!</div>
+      <div class="bigger">...and data!</div>
     </article>
     <aside class="note">
       <p>Low latency communication between peers, with less hops.</p>
@@ -145,7 +145,13 @@ URL: https://code.google.com/p/io-2012-slides
       <li>Google Chrome desktop: full support in Stable, flagless</li>
       <li>Google Chrome Android Beta: behind a flag</li>
       <li>Opera: getUserMedia, moving to WebKit</li>
-      <li>Firefox: Nightly and Aurora, getUserMedia experimental builds on mobile</li>
+      <li>Firefox:
+        <ul class="tight">
+        <li>Nightly and Aurora</li>
+          <li>Firefox for Android: getUserMedia in experimental builds</li>
+          <li><a href="http://www.webrtc.org/interop" title="Firefox/Chrome interop documentation">interop notes</a></li>
+        </ul>
+      </li>
       <li>IE: full WebRTC support now <a href="http://samdutton.wordpress.com/2012/08/09/how-to-use-webrtc-in-internet-explorer-with-chrome-frame/" title="Blog post about apprtc demo running in Chrome Frame">via Chrome Frame</a></li>
     </ul>
   </article>
@@ -179,7 +185,7 @@ navigator.getUserMedia(constraints, successCallback, errorCallback);
 
 <slide class="nobackground">
   <article class="fill flexbox vcenter">
-    <div class="reallyBig"><a href="http://www.simpl.info/gum" title="Simple getUserMedia demo">simpl.info/gum</a></div>
+    <div class="bigger"><a href="http://www.simpl.info/gum" title="Simple getUserMedia demo">simpl.info/gum</a></div>
   </article>
   <aside class="note">
     <p>Chrome, Firefox, Opera, Chrome and Firefox on Android.</p>
@@ -251,7 +257,7 @@ navigator.getUserMedia(constraints, successCallback, errorCallback);
     <h2>Constraints</h2>
   </hgroup>
   <article>
-    <ul>
+    <ul class="tight">
       <li>Mandatory or optional</li>
       <li>Resolution: width and height</li>
       <ul class="tight">
@@ -260,10 +266,12 @@ navigator.getUserMedia(constraints, successCallback, errorCallback);
       </ul>
       <li>Frame rate</li>
       <li>Facing mode: front or back camera</li>
-      <li>Source type: e.g. video camera or photo camera</li>
+      <li>Source type: video camera, screen capture...</li>
       <li>Source id</li>
       <li>Volume</li>
-      <li>Baffling error message!</li>
+      <li>
+      <p>Baffling error message:</p>
+      <p><code>NavigatorUserMediaError {code: 1, PERMISSION_DENIED: 1}</code></p></li>
     </ul>
   </article>
 </slide>
@@ -308,6 +316,14 @@ video: {
 
 <slide class="nobackground">
     <article class="fill flexbox vcenter">
+      <div><a href="http://www.shinydemos.com/facekat/" title="getUserMedia used to control a game">FaceKat</a></div>
+    </article>
+    <aside class="note">
+    </aside>
+</slide>
+
+<slide class="nobackground">
+    <article class="fill flexbox vcenter">
       <div><a href="http://webcamtoy.com/" title="getUserMedia photobooth, with effects">webcamtoy.com</a></div>
     </article>
     <aside class="note">
@@ -328,6 +344,16 @@ video: {
     </article>
     <aside class="note">
     <p>Check out the console for headtracking events!</p>
+    </aside>
+</slide>
+
+<slide class="nobackground">
+    <article class="fill flexbox vcenter">
+      <div style='margin: 0 0 2em 0'><a href="https://html5-demos.appspot.com/static/getusermedia/screenshare.html" title="Screen sharing demo">Screen sharing</a></div>
+      <div><a href="http://updates.html5rocks.com/2012/12/Screensharing-with-WebRTC" title="HTML5 Rocks update demoing tab capture">Tab capture: chrome.tabCapture</a></div>
+    </article>
+    <aside class="note">
+    <p>Extremely useful for doing IT support for your extended family!</p>
     </aside>
 </slide>
 
@@ -405,7 +431,7 @@ navigator.webkitGetUserMedia({audio:true}, gotStream);
     <h2>gUM ☞ Web Audio ☞ RTCPeerConnection</h2>
   </hgroup>
   <article>
-  <p>Capture microphone input and stream it to a peer with processing applied:</p>
+  <p style="margin: 0 0 2em 0">Capture microphone input and stream it to a peer with processing applied:</p>
     <pre class="prettyprint" data-lang="javascript">
 navigator.getUserMedia('audio', gotAudio);
 function gotAudio(stream) {
@@ -418,7 +444,7 @@ function gotAudio(stream) {
 }
 </pre>
 
-  <p><a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/webrtc-integration.html" title="W3C examples adapted from the MediaStream Processing API proposal">Media Stream integration examples</a></p>
+  <p style="margin: 2em 0 0 0"><a href="https://dvcs.w3.org/hg/audio/raw-file/tip/webaudio/webrtc-integration.html" title="W3C examples adapted from the MediaStream Processing API proposal">More Media Stream integration examples</a></p>
 
   </article>
   <aside class="note">
@@ -478,7 +504,7 @@ function gotAudio(stream) {
 
 <slide class="nobackground">
     <article class="fill flexbox vcenter">
-      <div class='quiteBig'>Peer discovery and signalling</div>
+      <div class='bigger'>Peer discovery and signalling</div>
     </article>
     <aside class="note">
       <p>The WebRTC APIs are all about acquiring data and communicating it.</p>
@@ -489,7 +515,7 @@ function gotAudio(stream) {
 
 <slide class="nobackground">
     <article class="fill flexbox vcenter">
-      <div class='quiteBig'>Discovery</div>
+      <div class='bigger'>Discovery</div>
     </article>
     <aside class="note">
       <p>This is the process of making contact with someone in order to begin communicating with them.</p>
@@ -502,7 +528,7 @@ function gotAudio(stream) {
 
 <slide class="nobackground">
     <article class="fill flexbox vcenter">
-      <div class='quiteBig'>Signalling</div>
+      <div class='bigger'>Signalling</div>
     </article>
     <aside class="note">
       <p>The point of the discovery process is to enable signalling.</p>
@@ -551,7 +577,7 @@ function gotAudio(stream) {
     <ol>
       <li>Caller creates RTCPeerConnection object.</li>
       <li>If success, callback passed IceCandidate.</li>
-      <li>Callee sends IceCandidate to callee.</li>
+      <li>Caller sends IceCandidate to callee.</li>
       <li>Callee creates a new remote IceCandidate, adds to remote description.</li>
       <li>Ping!</li>
     </ol>
@@ -609,7 +635,7 @@ function gotAudio(stream) {
 
 <slide class="nobackground">
     <article class="fill flexbox vcenter">
-      <div><a href="http://aprtc.appspot.com" title="Canonical RTCPeerConnection videochat example">aprtc.appspot.com</a></div>
+      <div><a href="http://apprtc.appspot.com" title="Canonical RTCPeerConnection videochat example">apprtc.appspot.com</a></div>
     </article>
     <aside class="note">
     <p>This is the best place to start with a fully featured WebRTC app: RTCPeerConnection, with signalling provided by XHR and DataChannel.</p>
@@ -617,7 +643,70 @@ function gotAudio(stream) {
 </slide>
 
 
-RTCDataChannel
+<slide class="segue dark nobackground">
+  <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+  <hgroup class="auto-fadein">
+    <h2>RTCDataChannel</h2>
+    <h3>Bidirectional communication of arbitrary data between peers</h3>
+  </hgroup>
+  <aside class="note">
+    <p></p>
+  </aside>
+</slide>
+
+<slide>
+  <hgroup>
+    <h2>RTCDataChannel</h2>
+  </hgroup>
+  <article>
+    <ul>
+      <li>API like WebSocket</li>
+      <li>Ultra-low latency</li>
+      <li>Unreliable v reliable: game position v file sharing</li>
+      <li>Gaming, remote control, sensor data...</li>
+    </ul>
+  </article>
+    <aside class="note">
+    </aside>
+</slide>
+
+<slide class="nobackground">
+    <article class="fill flexbox vcenter">
+      <div class="big"><a href="http://www.simpl.info/dc" title="Single page RTCDataChannel example">simpl.info/dc</a></div>
+    </article>
+    <aside class="note">
+    </aside>
+</slide>
+
+<slide>
+  <hgroup>
+    <h2>RTCDataChannel</h2>
+  </hgroup>
+  <article>
+<pre class="prettyprint" data-lang="javascript">
+function sendData(){
+  var data = document.getElementById("dataChannelSend").value;
+  sendChannel.send(data);
+}
+pc1 = new webkitRTCPeerConnection(servers, {optional: [{RtpDataChannels: true}]});
+sendChannel = pc1.createDataChannel("sendDataChannel", {reliable: false});
+...
+pc2 = new webkitRTCPeerConnection(servers, {optional: [{RtpDataChannels: true}]});
+function receiveChannelCallback(event) {
+  receiveChannel = event.channel;
+  receiveChannel.onmessage = onReceiveMessageCallback;
+}
+pc2.ondatachannel = receiveChannelCallback;
+function onReceiveMessageCallback(event) {
+  document.getElementById("dataChannelReceive").value = event.data;
+}
+</pre>
+  </article>
+    <aside class="note">
+    </aside>
+</slide>
+
+
 
 <slide>
   <hgroup>
@@ -658,7 +747,7 @@ RTCDataChannel
 
 <slide class="nobackground red">
     <article class="fill flexbox vcenter">
-      <div class="quiteBig">This is doing my head in.</div>
+      <div class="big">This is doing my head in.</div>
     </article>
     <aside class="note">
     </aside>
@@ -666,7 +755,7 @@ RTCDataChannel
 
 <slide>
   <hgroup>
-    <h2>Libraries and apps to the rescue</h2>
+    <h2>Libs and apps to the rescue!</h2>
   </hgroup>
   <article>
     <ul>
@@ -674,7 +763,9 @@ RTCDataChannel
       <li><a href="http://conversat.io/" title="conversat.io video chat app">conversat.io</a> built with <a href="https://github.com/henrikjoreteg/SimpleWebRTC" title="SimpleWebRTC github repository">SimpleWebRTC</a></li>
       <li><a href="http://peerjs.com/" title="PeerJS site">PeerJS</a></li>
       <li><a href="https://github.com/webRTC/webRTC.io" title="webRTC.io github repository">webRTC.io</a></li>
+      <li><a href="https://github.com/peer5/sharefest" title="Sharefest github repository">Sharefest</a></li>
     </ul>
+    <p style='margin: 2em 0 0 0'>Please tell me if I missed something!</p>
   </article>
     <aside class="note">
     </aside>
@@ -751,6 +842,59 @@ conn.on('open', function(){
 
 <slide>
   <hgroup>
+    <h2>Apps and frameworks</h2>
+  </hgroup>
+  <article>
+  <ul>
+    <li><a href="http://www.tokbox.com/" title="Tokbox site">TokBox</a> (acquired by Telefonica Digital)<br />
+    <img style="margin: 1em 0 0 0" src="images/tokbox.jpg" alt="Tokbox Flash v WebRTC demo" title="Tokbox: Flash (left) WebRTC (right)" /></li>
+    <li><a href="http://www.uberconference.com/" title="Überconference site">Überconference</a></li>
+    <li><a href="http://browsermeeting.com/" title="Browser Meeting site">Browser Meeting</a></li>
+  </ul>
+  </article>
+    <aside class="note">
+      <p></p>
+    </aside>
+</slide>
+
+<slide>
+  <hgroup>
+    <h2>Connecting to PSTN, aka telephones</h2>
+  </hgroup>
+  <article>
+  <ul>
+    <li>Media/SIP gateway</li>
+    <li><a href="https://code.google.com/p/sipml5/" title="">sipML5</a> open source SIP client</li>
+    <li>easyRTC Enterprise</li>
+    <li>Tropo:
+      <ul class="tight">
+        <li><a href="http://phono.com/" title="Phono SDK site">Phono</a> open source JavaScript phone API</li>
+        <li><a href="http://www.youtube.com/watch?v=Fl22T-_qsco&feature=youtu.be" title="Twelephone demo video">Twelephone</a></li>
+      </ul>
+    </li>
+  </ul>
+  </article>
+    <aside class="note">
+      <p></p>
+    </aside>
+</slide>
+
+<slide>
+  <hgroup>
+    <h2>Tethr</h2>
+  </hgroup>
+  <article class="flexbox vcenter">
+    <a href="http://tethr.tumblr.com" title="WebRTC API documentation"><img style="height: 100%" src="images/tethr.jpg" alt="Tethr in action at Google I/O 2012" /></a>
+  </article>
+    <aside class="note">
+      <p>At Google I/O this year Voxeo demonstrate a framework for disaster communications:</p>
+      <p>Set up an OpenBTS cell to enable communications between feature phones and computers via WebRTC.</p>
+      <p>Telephone communication without a carrier!</p>
+    </aside>
+</slide>
+
+<slide>
+  <hgroup>
     <h2>Don't forget the C++!</h2>
   </hgroup>
   <article class="flexbox vcenter">
@@ -761,13 +905,6 @@ conn.on('open', function(){
       <p>Also a Qt/C++ demo on YouTube.</p>
     </aside>
 </slide>
-
-
-
-
-
-
-
 
 <slide>
   <hgroup>
@@ -781,12 +918,21 @@ conn.on('open', function(){
     <li>Secure UI: explicit opt-in</li>
     <li>Sandboxed, no plugins, updated</li>
     <li><a href="http://www.ietf.org/proceedings/82/slides/rtcweb-13.pdf" title="Security Architecture slides">Proposed WebRTC Security Architecture</a> (IETF 82)</li>
-    <li><a href="http://www.ietf.org/proceedings/82/slides/rtcweb-13.pdf" title="W3C WebRTC security considerations: TBD">w3.org/TR/webrtc/#security-considerations</a></li>
+    <li><a href="http://www.w3.org/TR/webrtc/#security-considerations" title="W3C WebRTC security considerations: TBD">w3.org/TR/webrtc/#security-considerations</a></li>
   </ul>
   </article>
 <aside class="note">
     <p></p>
   </aside>
+</slide>
+
+<slide class="nobackground">
+    <article class="fill flexbox vcenter">
+      <div class="big"><a href="https://www.conversat.io/devoxx" title="conversat.io video chat demo">conversat.io/devoxx</a></div>
+    </article>
+    <aside class="note">
+      <p></p>
+    </aside>
 </slide>
 
 <slide>
@@ -831,7 +977,7 @@ conn.on('open', function(){
 
 <slide class="nobackground">
     <article class="fill flexbox vcenter">
-      <div class="quiteBig"><a href="http://www.crbug.com/new" title="Report Chrome bugs and feature requests">crbug.com/new</a></div>
+      <div class="bigger"><a href="http://www.crbug.com/new" title="Report Chrome bugs and feature requests">crbug.com/new</a></div>
     </article>
     <aside class="note">
     </aside>
@@ -842,7 +988,7 @@ conn.on('open', function(){
   <article class="flexbox vleft auto-fadein">
     <q>WebRTC and HTML5 could enable the same transformation for real-time communications that the original browser did for information.</q>
     <div class="author">
-      - Phil Edholm<br>
+      Phil Edholm<br>
       &ndash; NoJitter
     </div>
   </article>
@@ -862,7 +1008,7 @@ conn.on('open', function(){
 
 <slide class="nobackground">
     <article class="fill flexbox vcenter">
-      <div class="quiteBig"><a href="http://www.samdutton.net/devoxx2013" title="These slides online">samdutton.net/devoxx2013</a></div>
+      <div class="big"><a href="http://www.samdutton.net/devoxx2013" title="These slides online">samdutton.net/devoxx2013</a></div>
     </article>
     <aside class="note">
     </aside>
